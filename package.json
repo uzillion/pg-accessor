@@ -4,8 +4,21 @@
   "description": "A Node.js module for PostgreSQL that automatically generates accessors (getters and setters) for all tables in a database.",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test/index.js"
+    "build": "cp ./lib/accessor.js ./bin/accessor",
+    "start": "NODE_ENV=development node ./index.js",
+    "test": ""
+  },
+  "bin": {
+    "accessor": "./bin/accessor"
   },
   "author": "Uzair Inamdar <uzair_inamdar@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "pg-promise": "^8.4.5"
+  },
+  "devDependencies": {
+    "dotenv": "^6.0.0"
+  }
 }
