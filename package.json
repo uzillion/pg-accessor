@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "cp ./lib/accessor.js ./bin/accessor",
-    "start": "NODE_ENV=development node ./index.js",
+    "start": "node ./index.js",
+    "start-dev": "NODE_ENV=development node ./index.js",
     "test": ""
   },
   "bin": {
@@ -16,7 +17,8 @@
   "dependencies": {
     "fs": "0.0.1-security",
     "path": "^0.12.7",
-    "pg-promise": "^8.4.5"
+    "pg-promise": "^8.4.5",
+    "yargs": "^12.0.1"
   },
   "devDependencies": {
     "dotenv": "^6.0.0"
