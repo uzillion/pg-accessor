@@ -2,15 +2,20 @@
   "name": "pg-accessor",
   "version": "1.0.0",
   "description": "A Node.js module for PostgreSQL that automatically generates accessors (getters and setters) for all tables in a database.",
+  "keywords": [
+    "postgresql",
+    "pg",
+    "postgres",
+    "getter",
+    "setter"
+  ],
   "main": "index.js",
   "scripts": {
-    "build": "cp ./lib/accessor.js ./bin/accessor",
-    "start": "node ./index.js",
-    "start-dev": "NODE_ENV=development node ./index.js",
+    "start": "NODE_ENV=development ./index.js",
     "test": ""
   },
   "bin": {
-    "accessor": "./bin/accessor"
+    "accessor": "./index.js"
   },
   "author": "Uzair Inamdar <uzair_inamdar@hotmail.com>",
   "license": "MIT",
