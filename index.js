@@ -4,20 +4,20 @@
 // }
 const path = require('path');
 const getTables = require('./lib/db/getTables');
-const genConfig = require('./lib/build_config');
+const init = require('./lib/init');
 const argv = require('yargs').argv;
-const genFiles = require('./lib/genFiles');
+const build = require('./lib/build');
 
 switch(argv._[0]) {
   case "init":
     getTables().then((tables) => {
-      genConfig(tables);
+      init(tables);
     });
     break;
   case "build":
     // console.log(path.resolve('./db'));
     const build_obj = require(path.resolve('./db/config.js'));
-    genFiles(build_obj);
+    build(build_obj);
     break;
 
 }
