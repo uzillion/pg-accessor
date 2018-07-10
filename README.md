@@ -1,4 +1,5 @@
 # pg-accessor
+[![Build Status](https://travis-ci.org/uzillion/pg-accessor.svg?branch=master)](https://travis-ci.org/uzillion/pg-accessor)
 
 pg-accessor is a handy Node.js package for PostgreSQL databases that makes creating Promise based getter and setter functions for the tables a breeze. 
 
