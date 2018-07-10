@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-if(process.env.NODE_ENV == "development") {
-  require('dotenv').config();
-}
+// if(process.env.NODE_ENV == "development") {
+//   require('dotenv').config();
+// }
 const path = require('path');
-const getTables = require('./lib/db/getTables');
 const init = require('./lib/init');
 const build = require('./lib/build');
+const getTables = require('./lib/db/getTables');
 const fs = require('fs');
 global.dest = './db'; 
 const argv = require('yargs')
@@ -13,6 +13,7 @@ const argv = require('yargs')
   command: 'init',
   desc: 'Initialize the build process by creating config.js in db/',
   handler: (argv) => {
+
     if(!fs.existsSync(path.resolve(dest))) {
       fs.mkdirSync(path.resolve(dest));
     }
