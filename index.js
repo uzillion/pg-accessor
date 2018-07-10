@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// if(process.env.NODE_ENV == "development") {
+if(process.env.NODE_ENV == "development") {
   require('dotenv').config();
-// }
+}
 const path = require('path');
 const getTables = require('./lib/db/getTables');
 const init = require('./lib/init');
