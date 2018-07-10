@@ -7,12 +7,12 @@ The getter and setter functions are built using the amazing [pg-promise][] packa
 
 ## Table of Contents
 * [Installation](#installation)
-* [Usage](#commands)
+* [Usage](#usage)
 * [The config.js file](#the-configjs-file)
-  + [1. getter {..}](#1.-getter-{..})
-  + [2. setter {..}](#2.-setter-{..})
-  + [3. Parameterized Values](#parameterized-values)
-  + [4. Custom Accessors](#custom-accessors)
+  + [1. getter {..}](#1-getter-{..})
+  + [2. setter {..}](#2-setter-{..})
+  + [3. Parameterized Values](#3-parameterized-values)
+  + [4. Custom Accessors](#4-custom-accessors)
 * [Examples](#examples)
 * [Contributing](#contributing)
 * [Contact](#contact)
