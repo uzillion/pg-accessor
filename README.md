@@ -7,7 +7,7 @@ The getter and setter functions are built using the amazing [pg-promise][] packa
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#commands)
-* [The config.js file](#the-config.js-file)
+* [The config.js file](#the-configjs-file)
   + [1. getter {..}](#1.-getter-{..})
   + [2. setter {..}](#2.-setter-{..})
   + [3. Parameterized Values](#parameterized-values)
@@ -33,7 +33,7 @@ The usage is pretty straightforward.
 * First run `accessor init`. 
 * This will create config.js file in the ./db folder.
 * The config.js file consists of an object with various specifications that are easily customizable.
-  + Refer [here](#the-config.js-file) to learn how.
+  + Refer [here](#the-configjs-file) to learn how.
 * Once you're done customizing the config.js file, run `accessor build`. 
 * This will generate getter and setter files with the specifications defined in config.js.
 
