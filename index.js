@@ -5,7 +5,6 @@
 const path = require('path');
 const init = require('./lib/init');
 const build = require('./lib/build');
-const getTables = require('./lib/db/getTables');
 const fs = require('fs');
 global.dest = './db'; 
 const argv = require('yargs')
@@ -13,7 +12,7 @@ const argv = require('yargs')
   command: 'init',
   desc: 'Initialize the build process by creating config.js in db/',
   handler: (argv) => {
-
+    const getTables = require('./lib/db/getTables');
     if(!fs.existsSync(path.resolve(dest))) {
       fs.mkdirSync(path.resolve(dest));
     }

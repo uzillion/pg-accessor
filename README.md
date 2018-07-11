@@ -26,7 +26,7 @@ npm install -g pg-accessor
 
 # Local installation (relative path required):
 npm install pg-accessor 
-# Usage: ./node_modules/bin/accessor <command>
+# Usage: ./node_modules/.bin/accessor <command>
 ```
     
 ## Usage
@@ -38,7 +38,9 @@ The usage is pretty straightforward.
 * Once you're done customizing the config.js file, run `accessor build`. 
 * This will generate getter and setter files with the specifications defined in config.js.
 
-**Note** : It is recommended you use underscore in table names to seperate different words. Eg: _my_table_, _order_id_, etc.
+**Notes** : 
+* For using pg-accessor, the postgres database url needs to be exported to the environment as "DATABASE_URL"
+* It is recommended you use underscore in table names to seperate different words. Eg: _my_table_, _order_id_, etc.
 
 ## The config.js file
 config.js consists a list of all the database tables further broken down into getter and setter properties. These properties are further divided into required and optional properties. If one of the required child property is left empty, the parent property i.e. the getter or setter for that table will not be built.
@@ -74,7 +76,7 @@ To do so, you just need to create another table object that matches the general 
 
 ## Examples
 Below are the examples of customizing the config.js file to fit the needs of user.
-#### 1. Generate getter and setter for (_USERS_) table.
+#### 1. Generate getter and setter for _USERS_ table.
 The following config.js file will return all columns and rows for the getter; and will will update the age of a particular user using the user parameter to setter.
 ```javascript
 // config.js
@@ -185,21 +187,17 @@ module.exports = {
 ```
 
 ## Contributing
-Contributions are pleasantly welcomed, but following few guideline can go a long way in a hassle free in integration of your code. 
+If you are a developer trying to contribute to this project, please follow these steps:
+1. Fork and Clone the repository.
+2. Run `npm install`.
+3. Export the DATABASE_URL environment variable.
+4. Run `npm start <command>` or `./index.js <command>` to see if it runs without errors.
+    + If you wish to be able to execute `./index.js <command>` directly instead of `npm start <command>`, export `NODE_ENV=development` to the environment.
+5. Tests can be performed by running `npm test`
 
-* Forking the main repository is always the best way to contribute and keep track of changes.
-* Document your code, and try to follow the code style of the the base project.
-* Add adequate descriptions with your pull requests. The following are few questions you could answer while writing the description:
-  + What were you trying to do, and were you successful in doing so?
-  + Are there any known issues that you want to mention before we integrate?
-* Your pull request must pass the placed build tests, unless a reasonable explanation is provided. 
-* Always double check that your changes do not break the main project. 
+Please refer [Contribution Guidelines][] for more information.
 
-In case your pull-requests are not accepted, I will make sure to add a reason.
-
-Issues and feature requests should be posted to [Issues][] tab. If you have any other questions, you can contact me via email or Telegram.
-
-**Note** : For development purposes "DATABASE_URL" needs to be present as an environment variable to be able to connect to the database. It is recommended that you do this using the [dotenv][] package that is included as a dev-dependency. Using _dotenv_ you can easily load DATABASE_URL and other environment variables from a ".env" file in the root directory. 
+**Note** : "DATABASE_URL" needs to be present as an environment variable to be able to connect to the database. It is recommended that you do this using the [dotenv][] package that is included as a dev-dependency. Using _dotenv_ you can easily load DATABASE_URL and other environment variables from a ".env" file without having to export them everytime. 
 
 ## Contact
 **Email** : uzair_inamdar@hotmail.com<br>
@@ -214,3 +212,4 @@ Issues and feature requests should be posted to [Issues][] tab. If you have any 
 [Issues]: https://github.com/uzillion/pg-accessor/issues
 [this]: #3-creating-additional-accessors
 [dotenv]: https://www.npmjs.com/package/dotenv
+[Contribution Guidelines]: https://github.com/uzillion/pg-accessor/blob/master/CONTRIBUTING.md
