@@ -68,7 +68,7 @@ It is possible to create field values of the getter and setter function to be pa
 To create a parameterized field, just use a dollar sign ($) followed by the variable name. For example, if you want to get username as an argument to the _WHERE_ clause of a getter function, just add the following to the "where" object: `username: $username`. Refer to [examples](#examples) section for better examples.
 
 ### **4. Custom Accessors**
-It is also possible to create additional custom accessors. This may be needed more than one getter/setter is required for the same table.
+It is also possible to create additional custom accessors. This may be needed when more than one getter/setter is required for the same table.
 
 To do so, you just need to create another table object that matches the general structure. Refer to [this][] example to learn more.
 
@@ -212,5 +212,5 @@ Issues and feature requests should be posted to [Issues][] tab. If you have any 
 [pg-promise]: https://github.com/vitaly-t/pg-promise
 [documentation]: https://github.com/vitaly-t/pg-promise/#documentation
 [Issues]: https://github.com/uzillion/pg-accessor/issues
-[this]: #3.-creating-additional-accessors
+[this]: #3-creating-additional-accessors
 [dotenv]: https://www.npmjs.com/package/dotenv
