@@ -1,6 +1,6 @@
 {
   "name": "pg-accessor",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Node.js module for PostgreSQL that automatically generates accessors (getters and setters) for all tables in a database.",
   "keywords": [
     "postgresql",
@@ -11,9 +11,9 @@
   ],
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development ./index.js",
+    "start": "./index.js",
     "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha",
-    "db:migrate": "NODE_ENV=development node ./lib/db/migration.js"
+    "db:migrate": "node ./lib/db/migration.js"
   },
   "bin": {
     "accessor": "./index.js"
@@ -26,13 +26,13 @@
   },
   "homepage": "https://github.com/uzillion/pg-accessor#readme",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "fs": "0.0.1-security",
     "path": "^0.12.7",
     "pg-promise": "^8.4.5",
     "yargs": "^12.0.1"
   },
   "devDependencies": {
-    "dotenv": "^6.0.0",
     "mocha": "^5.2.0"
   }
 }

@@ -1,7 +1,4 @@
 #!/usr/bin/env node
-// if(process.env.NODE_ENV == "development") {
-//   require('dotenv').config();
-// }
 const path = require('path');
 const init = require('./lib/init');
 const build = require('./lib/build');
@@ -32,6 +29,6 @@ const argv = require('yargs')
       process.exit(1);
     }
   }
-}).demandCommand(1, "You need mention either 'init' or 'build'")
+}).demandCommand(1, "You need to mention either 'init' or 'build'")
 .help()
 .argv;

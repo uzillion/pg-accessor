@@ -31,6 +31,7 @@ npm install pg-accessor
     
 ## Usage
 The usage is pretty straightforward.
+* Export the DATABASE_URL to the environment using `export` or adding it to a ".env" file.
 * First run `accessor init`. 
 * This will create config.js file in the ./db folder.
 * The config.js file consists of an object with various specifications that are easily customizable.
@@ -38,9 +39,7 @@ The usage is pretty straightforward.
 * Once you're done customizing the config.js file, run `accessor build`. 
 * This will generate getter and setter files with the specifications defined in config.js.
 
-**Notes** : 
-* For using pg-accessor, the postgres database url needs to be exported to the environment as "DATABASE_URL"
-* It is recommended you use underscore in table names to seperate different words. Eg: _my_table_, _order_id_, etc.
+**Notes** : It is recommended you use underscore in table names to seperate different words. Eg: _my_table_, _order_id_, etc.
 
 ## The config.js file
 config.js consists a list of all the database tables further broken down into getter and setter properties. These properties are further divided into required and optional properties. If one of the required child property is left empty, the parent property i.e. the getter or setter for that table will not be built.
@@ -190,14 +189,11 @@ module.exports = {
 If you are a developer trying to contribute to this project, please follow these steps:
 1. Fork and Clone the repository.
 2. Run `npm install`.
-3. Export the DATABASE_URL environment variable.
+3. Export the DATABASE_URL to the environment using `export` or adding it to a ".env" file.
 4. Run `npm start <command>` or `./index.js <command>` to see if it runs without errors.
-    + If you wish to be able to execute `./index.js <command>` directly instead of `npm start <command>`, export `NODE_ENV=development` to the environment.
 5. Tests can be performed by running `npm test`
 
 Please refer [Contribution Guidelines][] for more information.
-
-**Note** : "DATABASE_URL" needs to be present as an environment variable to be able to connect to the database. It is recommended that you do this using the [dotenv][] package that is included as a dev-dependency. Using _dotenv_ you can easily load DATABASE_URL and other environment variables from a ".env" file without having to export them everytime. 
 
 ## Contact
 **Email** : uzair_inamdar@hotmail.com<br>
