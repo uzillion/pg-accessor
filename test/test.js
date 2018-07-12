@@ -71,7 +71,8 @@ describe('build()', () => {
   after(() => {
     fs.readdir('./db', (err, files) => {
       if(err) {
-        throw err;
+        console.error(err);
+        process.exit(1);
       } else {
         files.forEach((file, index) => {
           fs.unlinkSync('./db/'+file);

@@ -25,7 +25,8 @@ const argv = require('yargs')
       const build_obj = require(path.resolve(`${dest}/config.js`));
       build(build_obj);
     } else {
-      console.log('ERROR: You need to run "accessor init" before running build command');
+      console.error('\n\033[\033[1;31mERROR:\033[00m Cannot find config.js');
+      console.log('\nTry running "accessor init" to generate a config.js file.');
       process.exit(1);
     }
   }

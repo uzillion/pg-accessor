@@ -1,14 +1,20 @@
 {
   "name": "pg-accessor",
-  "version": "1.0.5",
-  "description": "A Node.js module for PostgreSQL that automatically generates accessors (getters and setters) for all tables in a database.",
+  "version": "1.0.6",
+  "description": "A CLI package for PostgreSQL that automatically generates accessors (getters and setters) for all tables in a database.",
   "keywords": [
     "postgresql",
     "pg",
     "postgres",
+    "cli",
     "getter",
-    "setter"
+    "setter",
+    "database"
   ],
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": "./index.js",
