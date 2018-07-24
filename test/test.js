@@ -3,8 +3,8 @@ const assert = require('assert');
 const fs = require('fs');
 const getTables = require('../lib/db/getTables');
 const init = require('../lib/init');
+const status = require('../lib/status');
 const build = require('../lib/build');
-
 
 describe('Database connection', () => {
   it('should not give errors', (done) => {
@@ -50,6 +50,18 @@ describe('init()', function() {
         done(new Error("Failed to populate all tables."));
     });
   });
+});
+
+describe('status()', () => {
+
+  it('should successfully grab status of all functions', (done) => {
+    try {
+      status()
+      done();
+    } catch(e) {
+      done(e);
+    }
+  })
 });
 
 describe('build()', () => {
