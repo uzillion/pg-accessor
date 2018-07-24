@@ -1,4 +1,4 @@
-global.dest = "./db";
+global.dest = "./test/db";
 const assert = require('assert');
 const fs = require('fs');
 const getTables = require('../lib/db/getTables');
@@ -20,8 +20,8 @@ describe('Database connection', () => {
 describe('init()', function() {
 
   before(() => {
-    if(!fs.existsSync('./db')) {
-      fs.mkdirSync('./db');
+    if(!fs.existsSync(dest)) {
+      fs.mkdirSync(dest);
     }
   })
 
@@ -33,8 +33,8 @@ describe('init()', function() {
   
   it('should build config.js', (done) => {
     getTables().then((tables) => {
-      init(tables).then(() => {
-        if(!fs.existsSync('./db/config.js'))
+      init(tables, true).then(() => {
+        if(!fs.existsSync(`${dest}/config.js`))
           done(new Error("config.js not built."));
         else
           done();
@@ -44,7 +44,7 @@ describe('init()', function() {
 
   it('should populate all tables', (done) => {
     getTables().then((tables) => {
-      if(Object.keys(require('../db/config')).length === tables.length)
+      if(Object.keys(require('./db/config')).length === tables.length)
         done();
       else
         done(new Error("Failed to populate all tables."));
@@ -55,13 +55,13 @@ describe('init()', function() {
 describe('build()', () => {
   
   it('should build index.js', () => {
-    build(require('../db/config'));
-    assert(fs.existsSync('./db/index.js'));
+    build(require('./db/config'), true);
+    assert(fs.existsSync(`${dest}/index.js`));
   });
 
   it('should build getter files', (done) => {
     getTables().then((tables) => {
-      if((Object.keys(require('../db/config')).length + 2) === fs.readdirSync('./db').length)
+      if((Object.keys(require('./db/config')).length + 2) === fs.readdirSync(dest).length)
         done();
       else
         done(new Error("Failed to build getter files"));
@@ -69,15 +69,15 @@ describe('build()', () => {
   });
 
   after(() => {
-    fs.readdir('./db', (err, files) => {
+    fs.readdir(dest, (err, files) => {
       if(err) {
         console.error(err);
         process.exit(1);
       } else {
         files.forEach((file, index) => {
-          fs.unlinkSync('./db/'+file);
+          fs.unlinkSync(dest+'/'+file);
         });
-        fs.rmdirSync('./db');
+        fs.rmdirSync(dest);
       }
     });
   })
