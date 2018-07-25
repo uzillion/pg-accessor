@@ -12,3 +12,5 @@ Contributions are pleasantly welcomed, but following few guideline can go a long
 In case your pull-requests are not accepted, I will make sure to add a reason.
 
 Issues and feature requests should be posted to [Issues][] tab. If you have any other questions, you can contact me via email or Telegram.
+
+[Issues]: https://github.com/uzillion/pg-accessor/issues

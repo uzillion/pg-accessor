@@ -1,5 +1,5 @@
 # pg-accessor
-[![NPM URL](https://img.shields.io/badge/npm-v1.1.1-red.svg)](https://www.npmjs.com/package/pg-accessor) [![Build Status](https://travis-ci.org/uzillion/pg-accessor.svg?branch=master)](https://travis-ci.org/uzillion/pg-accessor)
+[![NPM URL](https://img.shields.io/badge/npm-v1.1.1-%23cb3837.svg)](https://www.npmjs.com/package/pg-accessor) [![Build Status](https://travis-ci.org/uzillion/pg-accessor.svg?branch=master)](https://travis-ci.org/uzillion/pg-accessor)
 
 pg-accessor is a handy Node.js CLI package for PostgreSQL databases that makes creating Promise based getter and setter functions for the tables a breeze. 
 
@@ -30,21 +30,21 @@ npm install pg-accessor
 ```
     
 ## Usage
-The usage is pretty simple.
+The usage is pretty simple, and involves running 2 important commands.
+* Make sure the postgresql server is running.
 * Export the DATABASE_URL to the environment using `export` or adding it to a ".env" file.
-* First run `accessor init`. 
-* This will create config.js file in the ./db folder.
-* The config.js file consists of an object with various specifications that are easily customizable.
+* First run `accessor init`. This will create config.js file in the ./db folder.
+  + The config.js file consists of an object with various specifications that are easily customizable.
   + Refer [here](#the-configjs-file) to learn how.
 * (Optional) You can run `accessor status` to know which functions will and will not be generated.
 * Once you're done customizing the config.js file, run `accessor build`. 
-* This will generate getter and setter files with the specifications defined in config.js.
+  + This will generate getter and setter files with the specifications defined in config.js.
 
-Once can always run `accessor --help` to see the list of available options and commands.
+One can always run `accessor --help` to see the list of available options and commands.
 
 **Notes** : 
-1. Existing accessor files with the same name are protected overwriting. Rebuilding can be forced by passing the overwrite flag (-o, --overwrite).
-2. It is recommended you use snake case for table names to get the table names inside the accessor files in the form of camel case. Eg: _my_table_, _order_id_, etc.
+1. Existing accessor files with the same name are protected from being overwritten. Rebuilding can be forced by passing the overwrite flag (-o, --overwrite).
+2. It is recommended you use snake case for table names to output table names inside the accessors as camel case. Eg: _my_table_ becomes _myTable_, _order_id_ becomes _orderId_, etc.
 
 ## The config.js file
 config.js consists a list of all the database tables further broken down into getter and setter properties. These properties are further divided into required and optional properties. If one of the required child property is left empty, the parent property i.e. the getter or setter for that table will not be built.
