@@ -1,5 +1,5 @@
 # pg-accessor
-[![NPM URL](https://img.shields.io/badge/npm-v1.1.1-%23cb3837.svg)](https://www.npmjs.com/package/pg-accessor) [![Build Status](https://travis-ci.org/uzillion/pg-accessor.svg?branch=master)](https://travis-ci.org/uzillion/pg-accessor)
+ [![Build Status](https://travis-ci.org/uzillion/pg-accessor.svg?branch=master)](https://travis-ci.org/uzillion/pg-accessor) [![NPM URL](https://img.shields.io/badge/npm%20package-v1.1.3-blue.svg)](https://www.npmjs.com/package/pg-accessor)
 
 pg-accessor is a handy Node.js CLI package for PostgreSQL databases that makes creating Promise based getter and setter functions for the tables a breeze. 
 
@@ -32,8 +32,8 @@ npm install pg-accessor
 ## Usage
 The usage is pretty simple, and involves running 2 important commands.
 * Make sure the postgresql server is running.
-* Export the DATABASE_URL to the environment using `export` or adding it to a ".env" file.
-* First run `accessor init`. This will create config.js file in the ./db folder.
+* Export the DATABASE_URL to the environment by using the `export` command or adding it to a ".env" file.
+* First run `accessor init`. This will create config.js file in the ./db directory.
   + The config.js file consists of an object with various specifications that are easily customizable.
   + Refer [here](#the-configjs-file) to learn how.
 * (Optional) You can run `accessor status` to know which functions will and will not be generated.
@@ -51,7 +51,9 @@ config.js consists a list of all the database tables further broken down into ge
 
 To prevent the building of both&mdash;getter and setter&mdash;for certain tables, just delete the entire table object from the config.js file.<br>Similarly, to prevent the building of only one&mdash;either the getter or the setter&mdash;of a certain table, just delete the getter/setter objects of that table. Refer to the [examples](#examples) section to learn more.
 
-Below are the general specificiations of various properties, and how you can use them.
+**Note** : The table object names are only arbitrary identifiers to make it easy for user to identify which accessors are for which tables. Their names don't effect the creation of the accessor functions in any way.
+
+Below are the general specificiations of various properties of a single table object, and how you can use them.
 ### **1. getter {..}**
 | Property |  Type  | Required |                                                                                              Description                                                                                              |
 |:--------:|:------:|:--------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|

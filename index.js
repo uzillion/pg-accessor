@@ -1,14 +1,15 @@
 #!/usr/bin/env node
+global.dest = './db'; 
+const _v = require('./package.json').version;
 const path = require('path');
 const init = require('./lib/init');
 const build = require('./lib/build');
 const status = require('./lib/status');
 const fs = require('fs');
-global.dest = './db'; 
 const program = require('commander');
 
 program
-  .version('1.1.0', '-v, --version')
+  .version(_v, '-v, --version')
   .usage('[option] <command>')
   .option('-o, --overwrite', 'Overwrite existing file(s)');
 
@@ -33,7 +34,7 @@ program
       const build_obj = require(path.resolve(`${dest}/config.js`));
       build(build_obj, program.overwrite);
     } else {
-      console.error('\n\033[\033[1;31mERROR:\033[00m Cannot find config.js');
+      console.error('\n\033[1;31mERROR:\033[00m Cannot find config.js');
       console.log('\nTry running "accessor init" to generate a config.js file.');
       process.exit(1);
     }
